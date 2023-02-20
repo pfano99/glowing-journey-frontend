@@ -1,0 +1,43 @@
+<div class="card centered m-5" style="width: 50rem;">
+    <div class="card-body">
+        <div class="d-flex justify-content-end">
+            <h5 class="card-title">Transaction</h5>
+        </div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input name="amount" [(ngModel)]="amount" type="number" class="form-control" id="amount">
+                </div>
+                <div class="col mb-3">
+                    <label for="transactionType" class="form-label">Type</label>
+                    <select name="transactionType" [(ngModel)]="transactionType" id="transactionType" class="form-select">
+                        <option selected>Select Transaction type</option>
+                        <option value="WITHDRAW">Withdraw</option>
+                        <option value="DEPOSIT">Deposit</option>
+                        <option value="TRANSFER">Transfer</option>
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label for="account" class="form-label">Account</label>
+                    <select id="account" class="form-select">
+                        <option selected>Select Account</option>
+                        <option value="1">Account 01</option>
+                        <option value="2">Account 01</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input name="description" [(ngModel)]="description" type="text" class="form-control" id="description">
+                </div>
+                <div class="col mb-3">
+                    <label name="transactionDate" for="transactionDate" class="form-label">Date</label>
+                    <input placeholder="Select date" [(ngModel)]="transactionDate" type="date" id="transactionDate" class="form-control">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

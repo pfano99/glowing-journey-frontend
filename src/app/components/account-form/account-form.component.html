@@ -1,0 +1,28 @@
+<div class="card centered m-5" style="width: 50rem;">
+    <div class="card-body">
+        <div class="d-flex justify-content-end">
+            <h5 class="card-title">Add account</h5>
+        </div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="accountName" class="form-label">Account Name</label>
+                <input name="accountName" [(ngModel)]="accountName" type="text" class="form-control" id="accountName">
+            </div>
+            <div class="mb-3">
+                <label for="balance" class="form-label">Balance</label>
+                <input name="balance" [(ngModel)]="balance" type="number" class="form-control" id="balance">
+            </div>
+            <div class="mb-3">
+                <label for="accountType" class="form-label">Account Type</label>
+                <select name="accountType" [(ngModel)]="accountType" id="accountType" class="form-select">
+                    <option selected>Select account</option>
+                    <option value="SAVING">Saving</option>
+                    <option value="	INVESTMENT">Investment</option>
+                    <option value="CURRENT">Current</option>
+                    <option value="CREDIT">Credit</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

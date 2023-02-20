@@ -1,0 +1,12 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="row align-items-center">
+            <div *ngFor="let account of accounts;" class="col bg-white mx-1 p-2 rounded ">
+                <div class="d-flex justify-content-between mx-1">
+                    <div class="fw-bold">{{ account.name }}</div>
+                    <div class="money-green fw-bold fst-italic">R{{account.balance}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
