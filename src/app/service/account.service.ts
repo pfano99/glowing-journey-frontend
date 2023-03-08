@@ -22,4 +22,12 @@ export class AccountService {
     return this.http.get<Account[]>(url);
   }
 
+  deleteAccount(id: number) {
+    const url = `${this.apiUrl}/${id}`
+    this.http.delete(url).subscribe(
+      resp => {
+        console.log(resp);
+      }
+    );
+  }
 }

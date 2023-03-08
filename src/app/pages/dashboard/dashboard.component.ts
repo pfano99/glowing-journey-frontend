@@ -14,7 +14,7 @@ import { TransactionService } from 'src/app/service/transaction.service';
 })
 export class DashboardComponent {
 
-  transactions?: any[];
+  transactions?: Transaction[];
 
   currentUserId: number = 1;
 
@@ -29,6 +29,10 @@ export class DashboardComponent {
   newAccountAddedEvent?: Account;
 
   currentAccountId: number = -1;
+
+  deleteAccountClasses: string = "btn btn-outline-danger ms-4";
+
+  deleteAccountStyles = { '--bs-btn-padding-y': '.15rem', '--bs-btn-padding-x': '.5rem', '--bs-btn-font-size': '.70rem' };
 
   constructor(private transactionService: TransactionService, private accountService: AccountService) { }
 
@@ -59,4 +63,9 @@ export class DashboardComponent {
       }
     );
   }
+
+  getTransactionId(transaction: Transaction): number {
+    return transaction.id || -1;
+  }
+
 }

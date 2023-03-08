@@ -4,7 +4,7 @@
             [newAccountAddedEvent]="newAccountAddedEvent"></app-accounts-header>
     </div>
     <div class="col-md-2">
-        <div class="align-items-center">
+        <div class="align-items-center text-end">
             <app-account-form [btnText]="newAccountBtn" (formDataEmitter)="addNewAccount($event)"></app-account-form>
         </div>
     </div>
@@ -15,7 +15,11 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-2">
                     <div>
-                        <h5 class="card-title mb-0 pb-0">{{currentAccount.name}}</h5>
+                        <h5 class="card-title mb-0 pb-0">{{currentAccount.name}}
+                            <app-delete-confirm-modal [targetClass]="deleteAccountClasses" actionName="account"
+                                btnText="Delete account" [actionType]=1 [targetId]="currentAccountId"
+                                [targetStyles]="deleteAccountStyles"></app-delete-confirm-modal>
+                        </h5>
                         <h6 class="card-title mt-0 pt-0 money-green">R{{currentAccount.balance}}</h6>
                     </div>
                     <div>
@@ -33,7 +37,7 @@
                                         <small class="p-0 m-0">{{ transaction.transactionType|lowercase }}</small>
                                     </div>
                                     <div class="text-end">
-                                        <h6 class="p-0 m-0" >{{ transaction.amount|currency:'R' }}</h6>
+                                        <h6 class="p-0 m-0">{{ transaction.amount|currency:'R' }}</h6>
                                         <small class="p-0 m-0">{{ transaction.transactionDate }}</small>
                                     </div>
                                 </div>
@@ -45,7 +49,9 @@
                                             <button class="l-btn btn w-100"><i class="bi bi-sliders2"></i></button>
                                         </div>
                                         <div class=" w-100 h-100">
-                                            <button class="r-btn btn w-100"><i class="bi bi-trash3"></i></button>
+                                            <app-delete-confirm-modal targetClass="r-btn btn w-100"
+                                                actionName="transaction" btnText="" [actionType]=2
+                                                [targetId]=getTransactionId(transaction)></app-delete-confirm-modal>
                                         </div>
                                     </div>
                                 </div>

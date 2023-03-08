@@ -24,4 +24,13 @@ export class AccountEventService {
     const url = `${this.apiUrl}/account/${accountId}`
     return this.http.get<AccountEvent[]>(url);
   }
+
+  deleteAccountEvent(id: number) {
+    const url = `${this.apiUrl}/${id}`
+    this.http.delete(url).subscribe(
+      resp => {
+        console.log(resp);
+      }
+    );
+  }
 }

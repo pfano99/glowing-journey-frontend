@@ -2,7 +2,7 @@
     <div class="d-flex flex-wrap">
         <div *ngFor="let account of accounts; let i = index" class="flex-fill m-1 p-2 border rounded accx">
             <div class="d-flex justify-content-between" (click)="updateSelectedAccount(i)">
-                <div class="fw-bold me-4">{{ account.name }}</div>
+                <div class="fw-bold me-4">{{ account.name|lowercase }}</div>
                 <div class="money-green fw-bold">{{account.balance|currency:'R'}}</div>
             </div>
         </div>

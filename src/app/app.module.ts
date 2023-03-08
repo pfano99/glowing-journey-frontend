@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { AccountEventComponent } from './components/account-event/account-event.component';
 import { AccountEventFormComponent } from './components/account-event-form/account-event-form.component';
+import { DeleteConfirmModalComponent } from './components/delete-confirm-modal/delete-confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AccountEventFormComponent } from './components/account-event-form/accou
     InvestmentBoardComponent,
     HomeComponent,
     AccountEventComponent,
-    AccountEventFormComponent
+    AccountEventFormComponent,
+    DeleteConfirmModalComponent
   ],
   imports: [
     BrowserModule,

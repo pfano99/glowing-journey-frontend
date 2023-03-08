@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Account } from '../models/Account';
@@ -17,8 +17,18 @@ export class TransactionService {
     return this.http.post<Transaction>(url, transaction);
   }
 
-  getAllAccountTransactions(id: number): Observable<Account[]> {
+  getAllAccountTransactions(id: number): Observable<Transaction[]> {
     const url = `${this.apiUrl}/account/${id}`
-    return this.http.get<Account[]>(url);
+    return this.http.get<Transaction[]>(url);
   }
+
+  deleteTransaction(id: number) {
+    const url = `${this.apiUrl}/${id}`
+    this.http.delete(url).subscribe(
+      resp => {
+        console.log(resp);
+      }
+    );
+  }
+
 }

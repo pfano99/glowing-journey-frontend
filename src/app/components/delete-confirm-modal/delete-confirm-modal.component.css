@@ -1,0 +1,26 @@
+.modal-header{
+    border: none;
+}
+
+.l-btn {
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid black;
+}
+
+.r-btn {
+    border-radius: 0px 5px 5px 0px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+
+.r-btn:hover {
+    color: rgb(255, 255, 255);
+    background: #000000;
+}
+
+.l-btn:hover {
+    color: rgb(255, 255, 255);
+    background: #000000;
+}
