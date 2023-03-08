@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { Account } from 'src/app/models/Account';
 import { Transaction } from 'src/app/models/Transaction';
-import { TransactionService } from 'src/app/service/transaction.service';
+
 @Component({
   selector: 'app-transaction-form',
   templateUrl: './transaction-form.component.html',
@@ -8,12 +11,18 @@ import { TransactionService } from 'src/app/service/transaction.service';
 })
 export class TransactionFormComponent {
 
+  @Input() btnText = "transaction"
+
+  @Input() userAccountList: Account[] = [];
+
+  @Output() formDataEmitter = new EventEmitter<Transaction>();
+
   description: string = '';
   amount: number = 0;
   transactionType: string = '';
-  transactionDate: string = '';
+  transactionDate = '';
 
-  constructor(private transactionService:TransactionService){}
+  constructor(private modalService: NgbModal) { }
 
   onSubmit() {
 
@@ -23,17 +32,25 @@ export class TransactionFormComponent {
       transactionDate: this.transactionDate,
       transactionType: this.transactionType,
       account: {
-        id:1,
-        name:"Savings",
-        balance:2000.55,
-        accountType:"SAVING",
+        id: 1,
+        name: "Savings",
+        balance: 2000.55,
+        accountType: "SAVING",
       }
     }
-    console.log(newTransaction)
-    this.transactionService.addNewTransaction(newTransaction).subscribe(
-      data => {
-        console.log(data)
-      }
+    this.formDataEmitter.emit(newTransaction);
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.description = '';
+    this.amount = 0;
+    this.transactionType = '';
+    this.transactionDate = '';
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { size: 'lg' }).result.then(
     );
   }
 

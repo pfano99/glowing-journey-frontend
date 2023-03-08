@@ -12,8 +12,9 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  addNewTransaction(transaction: Transaction): Observable<Transaction> {
-    return this.http.post<Transaction>(this.apiUrl, transaction);
+  addNewTransaction(transaction: Transaction, accountId: number): Observable<Transaction> {
+    const url = `${this.apiUrl}/${accountId}`;
+    return this.http.post<Transaction>(url, transaction);
   }
 
   getAllAccountTransactions(id: number): Observable<Account[]> {

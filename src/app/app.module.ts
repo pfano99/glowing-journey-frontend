@@ -17,6 +17,8 @@ import { AccountsHeaderComponent } from './components/accounts-header/accounts-h
 import { InvestmentBoardComponent } from './components/investment-board/investment-board.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
+import { AccountEventComponent } from './components/account-event/account-event.component';
+import { AccountEventFormComponent } from './components/account-event-form/account-event-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HomeComponent } from './pages/home/home.component';
     DashboardComponent,
     AccountsHeaderComponent,
     InvestmentBoardComponent,
-    HomeComponent
+    HomeComponent,
+    AccountEventComponent,
+    AccountEventFormComponent
   ],
   imports: [
     BrowserModule,

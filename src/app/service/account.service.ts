@@ -12,13 +12,13 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  addAccount(account: Account): Observable<Account> {
-    return this.http.post<Account>(this.apiUrl, account);
+  addAccount(account: Account, userId: number): Observable<Account> {
+    const url = `${this.apiUrl}/${userId}`;
+    return this.http.post<Account>(url, account);
   }
 
   getAllUserAccounts(id: number): Observable<Account[]> {
     const url = `${this.apiUrl}/all/${id}`
-    console.log(url)
     return this.http.get<Account[]>(url);
   }
 

@@ -1,0 +1,40 @@
+<div class="card-body">
+    <div class="d-flex justify-content-between mb-2">
+        <div>
+            <h5 class="card-title mb-0 pb-0">{{eventBalance|currency:'R'}}</h5>
+            <h6 class="card-title mt-0 pt-0 money-green">{{"Monthly payments"}}</h6>
+        </div>
+        <div>
+            <app-account-event-form [btnText]="newEventBtn"
+                (formDataEmitter)="addNewEvent($event)"></app-account-event-form>
+        </div>
+    </div>
+    <div class="overflow-y-auto trans-list">
+        <div class="row" *ngFor="let event of events">
+            <div class="col-md-8">
+                <div class="trans d-flex justify-content-between">
+                    <div class="m-0">
+                        <h6 class="p-0 m-0">{{ event.name|titlecase }} </h6>
+                        <small class="p-0 m-0">{{ event.eventType|lowercase }}</small>
+                    </div>
+                    <div class="text-end">
+                        <h6 class="p-0 m-0" class="text-left">{{ event.amount|currency:'R' }}</h6>
+                        <small class="p-0 m-0 text-end">day {{ event.eventDate }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-0">
+                    <div class="d-flex flex-row">
+                        <div class=" w-100 h-100">
+                            <button class="l-btn btn w-100"><i class="bi bi-sliders2"></i></button>
+                        </div>
+                        <div class=" w-100 h-100">
+                            <button class="r-btn btn w-100"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
