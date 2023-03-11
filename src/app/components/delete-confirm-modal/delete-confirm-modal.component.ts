@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountEventService } from 'src/app/service/account-event.service';
 import { AccountService } from 'src/app/service/account.service';
+import { BudgetItemService } from 'src/app/service/budget-item.service';
+import { BudgetService } from 'src/app/service/budget.service';
 import { TransactionService } from 'src/app/service/transaction.service';
 
 @Component({
@@ -28,7 +30,9 @@ export class DeleteConfirmModalComponent {
   constructor(private modalService: NgbModal,
     private accountService: AccountService,
     private accountEventService: AccountEventService,
-    private transactionService: TransactionService) { }
+    private transactionService: TransactionService,
+    private budgetService: BudgetService,
+    private budgetItemService: BudgetItemService) { }
 
   open(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
@@ -51,6 +55,12 @@ export class DeleteConfirmModalComponent {
       case 3:
         this.deleteAccountEvent(this.targetId);
         break;
+      case 4:
+        this.deleteBudget(this.targetId);
+        break;
+      case 5:
+        this.deleteBudgetItem(this.targetId);
+        break;
       default:
         console.log("failed to delete!")
     }
@@ -67,4 +77,14 @@ export class DeleteConfirmModalComponent {
   deleteAccountEvent(id: number) {
     this.accountEventService.deleteAccountEvent(id);
   }
+
+  deleteBudget(id: number) {
+    this.budgetService.deleteBudget(id);
+  }
+
+  deleteBudgetItem(id: number) {
+    this.budgetItemService.deleteBudgetItem(id);
+  }
+
+
 }

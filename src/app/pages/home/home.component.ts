@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Budget } from 'src/app/models/Budget';
+import { BudgetItemService } from 'src/app/service/budget-item.service';
 
 @Component({
   selector: 'app-home',
@@ -9,28 +9,24 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
 })
 export class HomeComponent {
 
-  closeResult = '';
+  activeBudget: number = 0;
 
-  constructor(private modalService: NgbModal) { }
+  budgetItems?: any[];
 
-  open(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-      (result) => {
-        this.closeResult = `Closed with: ${result}`;
-      },
-      (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      },
-    );
+  budget: Budget = { name: "x", cost: 0, description: "" };
+
+  constructor(private budgetItemService: BudgetItemService) { }
+
+  updateBudgetItems(data: Budget) {
+    console.log(data)
+    const id: number = data.id || -1;
+    this.budget = data;
+    this.budgetItemService.getAllBudgetItems(id).subscribe(
+      data => {
+        this.budgetItems = data;
+        this.activeBudget = data[0].id || -1;
+      }
+    )
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
 }

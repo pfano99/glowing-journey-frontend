@@ -1,0 +1,40 @@
+<div class="card-body">
+    <div class="d-flex justify-content-between mb-2">
+        <div>
+            <h5 class="card-title mb-0 pb-0">{{"Budget"}}</h5>
+        </div>
+        <!-- <div>
+            <app-account-event-form [btnText]="newEventBtn"
+                (formDataEmitter)="addNewEvent($event)"></app-account-event-form>
+        </div> -->
+    </div>
+    <div class="overflow-y-auto trans-list">
+        <div class="row" *ngFor="let budget of budgets">
+            <div class="col-md-8" (click)="updateActiveBudget(budget)">
+                <div class="trans d-flex justify-content-between">
+                    <div class="m-0">
+                        <h6 class="p-0 m-0">{{ budget.name|titlecase }} </h6>
+                        <small class="p-0 m-0">{{ budget.description|lowercase }}</small>
+                    </div>
+                    <div class="text-end">
+                        <h6 class="p-0 m-0" class="text-left">{{ budget.cost|currency:'R' }}</h6>
+                        <!-- <small class="p-0 m-0 text-end">day {{ budget.eventDate }}</small> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-0">
+                    <div class="d-flex flex-row">
+                        <div class=" w-100 h-100">
+                            <button class="l-btn btn w-100"><i class="bi bi-sliders2"></i></button>
+                        </div>
+                        <div class=" w-100 h-100">
+                            <app-delete-confirm-modal targetClass="r-btn btn w-100" actionName="budget" [actionType]=4
+                                [targetId]="budget.id" btnText=""></app-delete-confirm-modal>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

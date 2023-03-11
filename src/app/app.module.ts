@@ -20,6 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AccountEventComponent } from './components/account-event/account-event.component';
 import { AccountEventFormComponent } from './components/account-event-form/account-event-form.component';
 import { DeleteConfirmModalComponent } from './components/delete-confirm-modal/delete-confirm-modal.component';
+import { BudgetComponent } from './components/budget/budget.component';
+import { BudgetFormComponent } from './components/budget-form/budget-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { DeleteConfirmModalComponent } from './components/delete-confirm-modal/d
     HomeComponent,
     AccountEventComponent,
     AccountEventFormComponent,
-    DeleteConfirmModalComponent
+    DeleteConfirmModalComponent,
+    BudgetComponent,
+    BudgetFormComponent,
   ],
   imports: [
     BrowserModule,
