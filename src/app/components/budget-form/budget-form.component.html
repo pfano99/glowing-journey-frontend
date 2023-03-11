@@ -1,1 +1,23 @@
-<p>budget-form works!</p>
+<ng-template #accountModal let-modal>
+    <div class="centered m-5">
+        <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <h5 class="card-title">Budget</h5>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="budgetName" class="form-label">Budget Name</label>
+                    <input name="budgetName" [(ngModel)]="budgetName" type="text" class="form-control" id="budgetName">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">description</label>
+                    <input name="description" [(ngModel)]="description" type="text" class="form-control"
+                        id="description">
+                </div>
+                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<button class="btn btn-outline-dark" (click)="open(accountModal)">{{ btnText }}</button>

@@ -9,6 +9,8 @@ import { BudgetService } from 'src/app/service/budget.service';
 })
 export class BudgetComponent {
 
+  userId: number = 1;
+
   @Output() activeBudgetIdEvent = new EventEmitter<Budget>();
 
   budgets: any = [];
@@ -24,6 +26,14 @@ export class BudgetComponent {
 
   updateActiveBudget(data: Budget) {
     this.activeBudgetIdEvent.emit(data);
+  }
+
+  addNewEvent(data: Budget) {
+    this.budgetService.addBudget(data, this.userId).subscribe(
+      data => {
+        this.budgets.push(data)
+      }
+    )
   }
 
 }

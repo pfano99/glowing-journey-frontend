@@ -3,10 +3,10 @@
         <div>
             <h5 class="card-title mb-0 pb-0">{{"Budget"}}</h5>
         </div>
-        <!-- <div>
-            <app-account-event-form [btnText]="newEventBtn"
-                (formDataEmitter)="addNewEvent($event)"></app-account-event-form>
-        </div> -->
+        <div>
+            <app-budget-form btnText="Add budget"
+                (formDataEmitter)="addNewEvent($event)"></app-budget-form>
+        </div>
     </div>
     <div class="overflow-y-auto trans-list">
         <div class="row" *ngFor="let budget of budgets">
