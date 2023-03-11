@@ -22,6 +22,7 @@ import { AccountEventFormComponent } from './components/account-event-form/accou
 import { DeleteConfirmModalComponent } from './components/delete-confirm-modal/delete-confirm-modal.component';
 import { BudgetComponent } from './components/budget/budget.component';
 import { BudgetFormComponent } from './components/budget-form/budget-form.component';
+import { BudgetItemFormComponent } from './components/budget-item-form/budget-item-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BudgetFormComponent } from './components/budget-form/budget-form.compon
     DeleteConfirmModalComponent,
     BudgetComponent,
     BudgetFormComponent,
+    BudgetItemFormComponent,
   ],
   imports: [
     BrowserModule,

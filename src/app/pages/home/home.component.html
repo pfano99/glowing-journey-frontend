@@ -9,8 +9,8 @@
                         <h6 class="card-title mt-0 pt-0 money-green">{{budget.cost|currency:'R'}}</h6>
                     </div>
                     <div>
-                        <!-- <app-budget-form btnText="add budget"
-                            (formDataEmitter)="addNewTransaction($event)"></app-budget-form> -->
+                        <app-budget-item-form btnText="add budget"
+                            (formDataEmitter)="addNewBudgetItem($event)"></app-budget-item-form>
                     </div>
                 </div>
                 <div class="overflow-auto trans-list">

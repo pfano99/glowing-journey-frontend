@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Budget } from 'src/app/models/Budget';
+import { BudgetItems } from 'src/app/models/budgetItems';
 import { BudgetItemService } from 'src/app/service/budget-item.service';
 
 @Component({
@@ -25,6 +26,15 @@ export class HomeComponent {
       data => {
         this.budgetItems = data;
         this.activeBudget = data[0].id || -1;
+      }
+    )
+  }
+
+  addNewBudgetItem(data: BudgetItems) {
+    this.budget.cost += data.price;
+    this.budgetItemService.addBudgetItem(data, this.activeBudget).subscribe(
+      data => {
+        this.budgetItems?.push(data);
       }
     )
   }

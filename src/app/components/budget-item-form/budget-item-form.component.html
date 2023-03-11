@@ -1,0 +1,28 @@
+<ng-template #accountModal let-modal>
+    <div class="centered m-5">
+        <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <h5 class="card-title">Budget</h5>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="budgetItemName" class="form-label">Item Name</label>
+                    <input name="budgetItemName" [(ngModel)]="budgetItemName" type="text" class="form-control"
+                        id="budgetItemName">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">price</label>
+                    <input name="price" [(ngModel)]="price" type="number" class="form-control" id="price">
+                </div>
+                <div class="mb-3">
+                    <label for="itemsCount" class="form-label">Quantity</label>
+                    <input name="itemsCount" [(ngModel)]="itemsCount" type="number" class="form-control"
+                        id="itemsCount">
+                </div>
+                <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<button class="btn btn-outline-dark" (click)="open(accountModal)">{{ btnText }}</button>
